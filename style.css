@@ -1,0 +1,195 @@
+/* Base */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: #fffaf0;
+    color: #333;
+    font-family: 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    padding-top: 70px;
+}
+
+/* Nav */
+nav { background: #fffaf0; position: fixed; top: 0; width: 100%; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+.nav-container { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; }
+.hamburger { background: none; border: none; font-size: 1.5rem; cursor: pointer; }
+.nav-links { position: absolute; top: 60px; left: 0; width: 100%; background: #fffaf0; display: none; flex-direction: column; text-align: center; list-style: none; border-top: 1px solid #eee; }
+.nav-links.active { display: flex; }
+.nav-links li a { display: block; padding: 15px; text-decoration: none; color: #333; font-weight: 500; }
+
+.cloud-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+.cloud-bubble {
+    position: relative;
+    background: #ffffff;
+    border: 3px solid #333;
+    border-radius: 50px;
+    padding: 20px 40px;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #333;
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
+.cloud-bubble::before,
+.cloud-bubble::after {
+    content: '';
+    position: absolute;
+    background: #ffffff;
+    border: 3px solid #333;
+    z-index: -1;
+}
+
+.cloud-bubble::before {
+    width: 50px;
+    height: 50px;
+    top: -20px;
+    left: 40px;
+    border-radius: 50%;
+    border-bottom: none;
+}
+
+.cloud-bubble::after {
+    width: 70px;
+    height: 70px;
+    top: -35px;
+    right: 50px;
+    border-radius: 50%;
+    border-bottom: none;
+}
+
+.cloud-dots {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    margin-right: 80px;
+}
+
+.circle {
+    background: #ffffff;
+    border: 2px solid #333;
+    border-radius: 50%;
+    margin-bottom: 6px;
+}
+
+.circle.large {
+    width: 20px;
+    height: 20px;
+}
+
+.circle.small {
+    width: 12px;
+    height: 12px;
+}
+
+.wave {
+    display: inline-block;
+    animation: wave-animation 2.5s infinite;
+    transform-origin: 70% 70%;
+}
+
+@keyframes wave-animation {
+    0%, 100% { transform: rotate(0deg); }
+    10%, 30% { transform: rotate(14deg); }
+    20% { transform: rotate(-8deg); }
+    40% { transform: rotate(-4deg); }
+    50% { transform: rotate(10deg); }
+}
+
+/* Hero */
+.hero { height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 20px; }
+.hero h1 { font-size: 2.2rem; }
+.highlight { color: #0984e3; }
+.btn { display: inline-block; padding: 12px 25px; background: #0984e3; color: white; text-decoration: none; border-radius: 5px; margin-top: 20px; }
+
+/* Tech Stack */
+.section { padding: 60px 5%; }
+.section-title { text-align: center; margin-bottom: 40px; font-size: 2rem; }
+
+.tech-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.tech-box {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.tech-box img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+}
+
+/* Projects */
+.project-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.project-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    border-left: 5px solid #0984e3;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+/* Links */
+a,
+a:visited,
+a:hover,
+a:active {
+    color: crimson !important;
+    text-decoration: none;
+}
+
+nav a,
+nav a:visited,
+footer a,
+footer a:visited {
+    color: crimson !important;
+}
+
+/* Footer */
+footer { background: #2d3436; color: white; padding: 40px 5%; }
+.footer-container { display: flex; flex-direction: column; gap: 30px; }
+.social-links a { color: #aaa; text-decoration: none; display: block; margin-top: 10px; }
+
+/* Desktop Version */
+@media (min-width: 768px) {
+    .hamburger { display: none; }
+    .nav-links { display: flex; flex-direction: row; position: static; width: auto; border: none; }
+    .nav-links li a { padding: 0 15px; }
+
+    .tech-container {
+        flex-direction: row;
+        justify-content: center;
+    }
+    .tech-box { flex: 1; max-width: 300px; }
+
+    .project-grid {
+        grid-template-columns: 1fr 1fr; /* 2 колони на десктоп */
+    }
+
+    .footer-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .hero h1 { font-size: 3.5rem; }
+}
